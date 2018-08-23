@@ -1,7 +1,13 @@
 package dynamicProgramming;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
+/**
+ * Sequence alignment dynamic programming algorithm
+ * @author James Sutton
+ *
+ */
 public class SequenceAlignment {
 	
 	static int match = 1, nonmatch = -1, space = -2;
@@ -15,10 +21,21 @@ public class SequenceAlignment {
 	private static void sequenceAlignment(String[] args) {
 		final long startTime = System.currentTimeMillis();
 
-		String X = args[0];
-		String Y = args[1];
+		//command line arguments
+		//String X = args[0];
+		//String Y = args[1];
 		
-		System.out.println("Input:\n\nx = " + X + "\ny = "+Y+"\n");
+		//reads in sequences from user input
+		System.out.println("This algorithm is used to compare two DNA strands in genetics, use characters: A,C,T,G (recommended), adenine (A), cytosine (C), thymine (T), and guanine (G)");
+
+		Scanner reader = new Scanner(System.in);  // Reading from System.in
+		System.out.println("Enter sequence 1: ");
+		String X = reader.nextLine();
+		System.out.println("Enter sequence 2: ");
+		String Y = reader.nextLine();
+		reader.close();
+		
+		System.out.println("\nInput:\n\nx = " + X + "\ny = "+Y+"\n");
 		
 		Alignment(X,Y);
 		
